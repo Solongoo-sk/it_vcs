@@ -44,9 +44,9 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <!-- Google Sign-In Button -->
+    
     <div id="g_id_onload"
-         data-client_id="192628340511-n6dgr38e9cdqtpckrbikp81upr15kjen.apps.googleusercontent.com"  <!-- Google Client ID-ээ энд тавина уу -->
+         data-client_id="192628340511-n6dgr38e9cdqtpckrbikp81upr15kjen.apps.googleusercontent.com"
          data-callback="handleCredentialResponse"
          data-auto_prompt="false">
     </div>
@@ -58,14 +58,14 @@
          data-size="large">
     </div>
 
-    <!-- User Info Section -->
+    
     <div class="user-info" id="user-info" style="display: none;">
         <h2>Тавтай морил, <span id="user-name"></span></h2>
         <img id="user-photo" src="" alt="User Photo">
         <p><strong>И-мэйл:</strong> <span id="user-email"></span></p>
     </div>
 
-    <!-- Weather Section -->
+    
     <div class="weather-container">
         <h1>Улаанбаатар</h1>
         <div class="temp" id="temperature">--°C</div>
@@ -74,7 +74,7 @@
     </div>
 
     <script>
-        // Google Authentication callback function
+        
         function handleCredentialResponse(response) {
             const data = jwt_decode(response.credential);
             document.getElementById("user-info").style.display = "block";
@@ -83,8 +83,7 @@
             document.getElementById("user-photo").src = data.picture;
         }
 
-        // Weather API
-        const apiKey = 'a1f3ab0bf26b855880ed1ca4bc7546a5';  // Таны OpenWeather API түлхүүр
+        const apiKey = 'a1f3ab0bf26b855880ed1ca4bc7546a5'; 
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Ulaanbaatar&units=metric&lang=mn&appid=${apiKey}`;
 
         fetch(apiUrl)
